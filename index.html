@@ -5,16 +5,98 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
   <style>
-    body { margin: 0; background: #050301; overflow: hidden; }
+    body { margin: 0; background: #050301; overflow: hidden; font-family: Arial, sans-serif; }
     video { display: none; }
     canvas { width: 100%; height: 100%; transform: scaleX(-1); position: absolute; z-index: 1; }
+
+    /* ───────── Modal Styles ───────── */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: #111;
+      color: #fff;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      text-align: left;
+      box-shadow: 0 0 25px rgba(0,255,255,0.2);
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .modal-content ul {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    .modal-content button {
+      margin-top: 20px;
+      padding: 20px 20px;
+      width: 100%;
+      border: none;
+      background: cyan;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-size: 20px;
+    }
+
+    .modal-content button:hover {
+      background: #00cccc;
+    }
   </style>
 </head>
+
 <body>
+
+  <div class="modal" id="instructionModal">
+    <div class="modal-content">
+      <h2>How to Use Ladley!</h2>
+      <ul>
+        <li>Use a laptop for best experience.</li>
+        <li>Hold <strong>Shift</strong> and move your index finger to draw.</li>
+        <li>Use your <strong>middle finger</strong> gesture to erase drawings.</li>
+        <li>Press <strong>Backspace</strong> to clear the canvas completely.</li>
+        <li>To select any component, hold your gesture for 2-3 seconds until the round circle auto-selects it.</li>
+      </ul>
+      <button onclick="closeModal()">Start Drawing</button>
+    </div>
+  </div>
+
   <video id="vid"></video>
   <canvas id="c"></canvas>
-  
+
+  <script>
+    function closeModal() {
+      document.getElementById("instructionModal").style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Backspace") {
+        e.preventDefault();
+      }
+    });
+  </script>
+
   <script src="index.js"></script>
 </body>
 </html>
