@@ -5,65 +5,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    body { margin: 0; background: #050301; overflow: hidden; font-family: Arial, sans-serif; }
-    video { display: none; }
-    canvas { width: 100%; height: 100%; transform: scaleX(-1); position: absolute; z-index: 1; }
-
-    /* ───────── Modal Styles ───────── */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .modal-content {
-      background: #111;
-      color: #fff;
-      padding: 30px;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 10px;
-      text-align: left;
-      box-shadow: 0 0 25px rgba(0,255,255,0.2);
-    }
-
-    .modal-content h2 {
-      margin-top: 0;
-      text-align: center;
-    }
-
-    .modal-content ul {
-      padding-left: 20px;
-      line-height: 1.6;
-    }
-
-    .modal-content button {
-      margin-top: 20px;
-      padding: 20px 20px;
-      width: 100%;
-      border: none;
-      background: cyan;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: 0.3s;
-      font-size: 20px;
-    }
-
-    .modal-content button:hover {
-      background: #00cccc;
-    }
-  </style>
+ 
 </head>
 
 <body>
@@ -78,7 +22,36 @@
         <li>Press <strong>Backspace</strong> to clear the canvas completely.</li>
         <li>To select any component, hold your gesture for 2-3 seconds until the round circle auto-selects it.</li>
       </ul>
-      <button onclick="closeModal()">Start Drawing</button>
+      <!-- <button onclick="closeModal()">Start Drawing</button> -->
+
+<div class="btn-wrapper">
+  <div class="line horizontal top"></div>
+  <div class="line vertical right"></div>
+  <div class="line horizontal bottom"></div>
+  <div class="line vertical left"></div>
+
+  <div class="dot top left"></div>
+  <div class="dot top right"></div>
+  <div class="dot bottom right"></div>
+  <div class="dot bottom left"></div>
+
+  <button class="btn">
+    <span onclick="closeModal()" class="btn-text">start designing</span>
+    <svg class="btn-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.6744 11.4075L15.7691 17.1233C15.7072 17.309 15.5586 17.4529 15.3709 17.5087L3.69348 20.9803C3.22819 21.1186 2.79978 20.676 2.95328 20.2155L6.74467 8.84131C6.79981 8.67588 6.92419 8.54263 7.08543 8.47624L12.472 6.25822C12.696 6.166 12.9535 6.21749 13.1248 6.38876L17.5294 10.7935C17.6901 10.9542 17.7463 11.1919 17.6744 11.4075Z"
+      ></path>
+      <path d="M3.2959 20.6016L9.65986 14.2376"></path>
+      <path
+        d="M17.7917 11.0557L20.6202 8.22724C21.4012 7.44619 21.4012 6.17986 20.6202 5.39881L18.4989 3.27749C17.7178 2.49645 16.4515 2.49645 15.6704 3.27749L12.842 6.10592"
+      ></path>
+      <path
+        d="M11.7814 12.1163C11.1956 11.5305 10.2458 11.5305 9.66004 12.1163C9.07426 12.7021 9.07426 13.6519 9.66004 14.2376C10.2458 14.8234 11.1956 14.8234 11.7814 14.2376C12.3671 13.6519 12.3671 12.7021 11.7814 12.1163Z"
+      ></path>
+    </svg>
+  </button>
+</div>
+
     </div>
   </div>
 

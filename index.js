@@ -334,7 +334,7 @@ function run(res) {
     drawShapePalette(sx, sy);
 
     if (middleUp) {
-      // ── ERASE ───────
+      // ── ERASE 
       ctx.shadowBlur  = 0;
       ctx.beginPath();
       ctx.arc(mx, my, 30, 0, 2 * Math.PI);
@@ -394,7 +394,7 @@ function run(res) {
       curStroke = null;
 
     } else {
-      // ── FREEHAND MODE ──────────────────────────────────────────
+      // ── FREEHAND MODE 
       shapeLive  = null;
       pinching   = false;
       shapeStart = null;
