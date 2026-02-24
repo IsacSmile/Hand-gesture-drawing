@@ -87,7 +87,7 @@ function eraseNear(x, y, radius) {
   });
 }
 
-// ── Render one shape 
+//  Render one shape 
 function renderShape(d) {
   ctx.shadowColor = d.shadow;
   ctx.shadowBlur  = 15;
